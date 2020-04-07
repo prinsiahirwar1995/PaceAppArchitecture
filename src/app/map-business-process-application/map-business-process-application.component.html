@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <div></div>
+  <br>
+
+  <form [formGroup]="form"
+    style="width: 1170px;margin-left: 90px; background-color: #fff;border: #31708F solid 1px;margin-top:-39px;">
+
+    <div class="container" style="width: 1170px;">
+
+      <div class="row" style="background-color: #337ab7;
+   color:#fff !important;  height: 40px;">
+        <div class="col-xs-4 div" style="margin-top: 8px;color: white;">
+          Map Business Processes Supported by Application
+
+        </div>
+        <div class="col-xs-4 div" style="margin-top: 3px;">
+
+        </div>
+        <div class="col-xs-4 div" style="margin-top: 8px;color: white;display: none;">
+          Last Action: <label style="width: 60px;" #lblMessage></label>
+
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-4 text-center ">
+          <strong> Portfolio / Domain:</strong>
+        </div>
+        <div class="col-sm-6 form-group">
+          <div ng-app="mainApp" ng-controller="mainCtrl">
+            <select required class="btn btn-default textbackgroundcolor" formControlName="PortfolioID"
+              ng-model="mapData" style="width: 465px;" (change)="Onchangedropdown($event.target.value)"
+              [ngClass]="{ 'is-invalid': submitted && f.PortfolioID.errors }">
+              <option value="" >--Select--</option>
+              <option *ngFor="let m of mapData;" value={{m.ID}}>{{m.Portfolio}}</option>
+            </select>
+            <div *ngIf="submitted && f.PortfolioID.errors" class="invalid-feedback">
+              <div *ngIf="f.PortfolioID.errors.required">PortfolioID is required</div>
+            </div>
+          </div>
+        </div>
+      </div>&nbsp;
+      <div class="row">
+        <div class="col-sm-4 text-center">
+          <strong> Application Name:</strong>
+        </div>
+        <div class="col-sm-6 form-group">
+          <div ng-app="mainApp" ng-controller="mainCtrl">
+            <select required class="btn btn-default textbackgroundcolor" formControlName="ApplicationID"
+              ng-model="ApplicationData" (change)="OnchangeAppdropdown($event.target.value)" style="width: 465px;"
+              [ngClass]="{ 'is-invalid': submitted && f.ApplicationID.errors }">
+              <option value="">--Select--</option>
+              <option *ngFor="let app of ApplicationData; let j=index" value={{app.ID}}>{{app.appTitle}}</option>
+            </select>
+            <div *ngIf="submitted && f.ApplicationID.errors" class="invalid-feedback">
+              <div *ngIf="f.ApplicationID.errors.required">ApplicationID is required</div>
+            </div>
+
+          </div>
+        </div>
+      </div>&nbsp;
+      <div class="row">
+        <div class="col-sm-4 text-center">
+          <strong>Business Process:</strong>
+        </div>
+        <div class="col-sm-6 form-group">
+          <div ng-app="mainApp" ng-controller="mainCtrl">
+            <select required class="btn btn-default textbackgroundcolor" formControlName="BPID" ng-model="BPData"
+              style="width: 465px;" [ngClass]="{ 'is-invalid': submitted && f.BPID.errors }">
+              <option value="">--Select--</option>
+              <option *ngFor="let bp of BPData; let k=index" value={{bp.ID}}>{{bp.PrcCaption}}</option>
+            </select>
+            <div *ngIf="submitted && f.BPID.errors" class="invalid-feedback">
+              <div *ngIf="f.BPID.errors.required">BPID is required</div>
+            </div>
+          </div>
+        </div>
+      </div>&nbsp;
+      <div class="row">
+        <div class="col-sm-4 text-center">
+          <strong> Support Level:</strong>
+        </div>
+        <div class="col-sm-6 form-group">
+          <div ng-app="mainApp" ng-controller="mainCtrl">
+            <select required class="btn btn-default textbackgroundcolor" formControlName="SupportLevelID"
+              ng-model="SupprtLevel" style="width: 465px;"
+              [ngClass]="{ 'is-invalid': submitted && f.SupportLevelID.errors }">
+              <option value="">--Select--</option>
+              <option *ngFor="let sl of SupportLevel; let m = index" value={{sl.ID}}>{{sl.Caption}}</option>
+            </select>
+            <div *ngIf="submitted && f.SupportLevelID.errors" class="invalid-feedback">
+              <div *ngIf="f.SupportLevelID.errors.required">SupportLevelID is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-primary" (click)="onSubmit()"
+            style="width: 120px;">
+            <strong>Add Process!</strong>
+          </button>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6">
+
+        </div>
+      </div>
+      <!--Table for display data-->
+      <table #tableforddl class="table table-bordered table-responsive-md table-striped text-center"
+        style="display:none;">
+        <thead class="div">
+          <tr>
+
+            <th style="display: none;text-align: center;">Portfolio</th>
+            <th style="text-align: center;">Application</th>
+            <th style="text-align: center;">Business Process</th>
+            <th style="text-align: center;">Support Level</th>
+            <th></th>
+            
+          </tr>
+        </thead>
+        <tbody class="div">
+          <tr *ngFor="let dg of Tabledata; let j= index">
+
+            <td style="width: 250px;display: none;" class="form-group">
+              {{dg.Portfolio}}
+
+            </td>
+            <td style="width: 250px;">{{dg.AppTitle}}</td>
+            <td style="width: 250px;">{{dg.PrcCaption}}</td>
+             <td [hidden]="dg.isEditable" >{{dg.Support}}</td> 
+            
+            <td style="width: 250px;" [hidden]="!dg.isEditable" >
+              <select  class="btn btn-default textbackgroundcolor"  
+              (change)="OnUpdateSupport($event.target.value)"
+              formControlName="SupportLevelID" ng-model="SupprtLevel" style="width: 250px;">
+                <option value="">{{dg.Support}}</option>
+                <option *ngFor="let sl of SupportLevel; let m = index" value={{sl.ID}}>{{sl.Caption}}</option>
+              </select>
+            </td>
+            <td style="width: 150px;" [hidden]="dg.isEditable"> 
+              <button class="btn btn-primary" (click)="DeleteToDo(j)"> <i class="fa fa-trash"></i></button>
+              <button *ngIf="!dg.isEditable" type="button" class="btn btn-primary"  (click)="dg.isEditable=!dg.isEditable" style="margin-left: 20px;">
+                <i class="fa fa-pencil"></i></button>
+            </td>
+            <td>
+              
+                <button *ngIf="dg.isEditable" class="btn btn-primary" (click)="UpdateSupportLevel(j)" style="margin-left: 20px;"> 
+                  <span class="glyphicon glyphicon-ok"></span></button>
+                  <button *ngIf="dg.isEditable" class="btn btn-primary" (click)="cancel()" style="margin-left: 20px;"> 
+                    <span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+            
+          </tr>
+        </tbody>
+
+      </table>
+      <table #tablewithoutddl class="table table-bordered table-responsive-md table-striped text-center">
+        <thead class="div">
+          <tr>
+            <th style="text-align: center;">Portfolio</th>
+            <th style="text-align: center;">Application</th>
+            <th style="text-align: center;">Business Process</th>
+            <th style="text-align: center;">Support Level</th>
+            <th></th>
+            
+          </tr>
+        </thead>
+        <tbody class="div">
+          <tr *ngFor="let dg of Tabledata; let i=index">
+            <td style="width: 250px;" class="form-group">
+              {{dg.Portfolio}}
+
+            </td>
+            <td style="width: 250px;" class="form-group">{{dg.AppTitle}}
+            </td>
+            <td style="width: 250px;" class="form-group">{{dg.PrcCaption}}
+            </td>
+            <td  [hidden]="dg.isEditable">{{dg.Support}}</td>
+            <td style="width: 250px;" class="form-group" [hidden]="!dg.isEditable">
+              <select  class="btn btn-default textbackgroundcolor"  (change)="OnUpdateSupport($event.target.value)"
+              formControlName="SupportLevelID" ng-model="SupprtLevel" style="width: 250px;">
+                <option value="">{{dg.Support}}</option>
+                <option *ngFor="let sl of SupportLevel; let m = index" value={{sl.ID}}>{{sl.Caption}}</option>
+              </select>
+            </td>
+            <td style="width:150px;" [hidden]="dg.isEditable" > 
+              <button  class="btn btn-primary"  (click)="DeleteToDo(i)"> 
+              <i class="fa fa-trash"></i></button>
+              <button *ngIf="!dg.isEditable" class="btn btn-primary"  (click)="dg.isEditable=!dg.isEditable"  style="margin-left: 20px;">
+                <i class="fa fa-pencil"></i></button>
+            </td>
+            <td>
+              
+                <button *ngIf="dg.isEditable" class="btn btn-primary" (click)="UpdateSupportLevel(i)" style="margin-left: 20px;"> 
+                  <span class="glyphicon glyphicon-ok"></span></button>
+                  <button *ngIf="dg.isEditable" class="btn btn-primary" (click)="cancel()"  style="margin-left: 20px;"> 
+                    <span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+            
+          </tr>
+        </tbody>
+
+      </table>
+
+
+    </div>
+    <div style="margin-bottom: 50px;">
+    </div>
+  </form>
+
+</body>
+
+</html>

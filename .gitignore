@@ -44,3 +44,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+=======
+src/config.azcli
+angular.json
+package-lock.json
+package.json
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326

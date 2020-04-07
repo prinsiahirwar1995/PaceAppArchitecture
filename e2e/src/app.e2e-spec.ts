@@ -10,7 +10,11 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
+<<<<<<< HEAD
     expect(page.getTitleText()).toEqual('PaceLayerApplication app is running!');
+=======
+    expect(page.getTitleText()).toEqual('PaceLayerUI app is running!');
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
   });
 
   afterEach(async () => {

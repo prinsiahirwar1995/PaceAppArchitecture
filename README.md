@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # PaceLayerApplication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+=======
+# PaceLayerUI
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
 
 ## Development server
 
