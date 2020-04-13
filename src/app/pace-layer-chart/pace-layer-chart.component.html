@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src= "https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"> 
+        </script> 
+</head>
+<body>
+
+    <div style="height: 50px;"></div>
+    
+    <div>
+        <button (click)="downloadImage()" type="button" style="margin-right:5px; float: right;" 
+                        class="btn btn-primary">Export</button>
+    </div>
+    <table #screen id="table">
+    <div class="scene mainContainer"> 
+        <div class="appContainer">
+                <div *ngFor="let cv of chartdata;">
+                    <div style="overflow:hidden; white-space: nowrap;" class="appItem" *ngIf="(cv.caption == 'Systems of Innovation')">
+                        <a href="" class="boxTitle" title={{cv.apptitle}}>{{cv.apptitle}}</a>
+                    </div>
+                
+                </div>
+        </div>
+
+        <div class="box show-bottom">
+            <div class="box__face box__face--front category1"></div>
+            <div class="box__face box__face--back category1" >
+                <strong style="transform: rotateY(-180deg) translateZ( 22px);text-align: center;position: absolute;">System&nbsp; of&nbsp; Innovation</strong>
+            </div>
+            <div class="box__face box__face--right category1"></div>
+            <div class="box__face box__face--left category1"></div>
+            <div class="box__face box__face--top category1"></div>
+            <div class="box__face box__face--bottom category1-caption">System of Innovation</div>
+        </div>
+        
+    </div>
+   
+    <div class="scene mainContainer">
+        <div class="appContainer1">
+            <div  *ngFor="let cv of chartdata">
+                <div style="overflow:hidden; white-space: nowrap;" class="appItem" *ngIf="(cv.caption == 'Systems of Differentiation')">
+                    <a href="" class="boxTitle" title={{cv.apptitle}}>{{cv.apptitle}}</a>
+                </div>
+               
+            </div>
+        </div>
+        
+        <div class="box show-bottom">
+            <div class="box__face box__face--front category2"></div>
+            <div class="box__face box__face--back category2">
+                <strong style="transform: rotateY(-180deg) translateZ( 22px);text-align: center;position: absolute;">System&nbsp; of&nbsp; Differentiation</strong>
+            </div>
+            <div class="box__face box__face--right category2"></div>
+            <div class="box__face box__face--left category2"></div>
+            <div class="box__face box__face--top category2"></div>
+            <div class="box__face box__face--bottom category2-caption" >System of Differentiation</div>
+        </div>
+    </div>
+    <div style="margin-bottom: 100px;"></div>
+    <div class="scene mainContainer">
+        <div class="appContainer2">
+        <div *ngFor="let cv of chartdata">
+            <div style="overflow:hidden; white-space: nowrap;" class="appItem" *ngIf="(cv.caption == 'Systems of Record')">
+                <a href="" class="boxTitle" title={{cv.apptitle}}>{{cv.apptitle}}</a>
+            </div>  
+        </div>
+    </div>
+    
+        <div class="box show-bottom" #takingfordata>
+            <div class="box__face box__face--front category3"></div>
+            <div class="box__face box__face--back category3">
+                <strong style="transform: rotateY(-180deg) translateZ( 22px);text-align: center;position: absolute;">System&nbsp; of&nbsp; Record</strong>
+            </div>
+            <div class="box__face box__face--right category3"></div>
+            <div class="box__face box__face--left category3"></div>
+            <div class="box__face box__face--top category3"></div>
+            <div class="box__face box__face--bottom category3-caption">System of Record</div>
+        </div>
+    </div>
+</table>
+<div id="download" style="visibility: hidden;">
+    <img #canvas>
+    <a #downloadLink  style="width:1150px"></a>
+  </div>
+</body>
+</html>

@@ -1,9 +1,23 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+<<<<<<< HEAD
   "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
     "ApplicationForPaceLayer": {
+=======
+<<<<<<< HEAD
+  "version": 1, 
+  "newProjectRoot": "projects",
+  "projects": {
+    "PaceLayerApplication": {
+=======
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "PaceLayerUI": {
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
+>>>>>>> 74511f29ab5a63d609316348f7846a238303ab0d
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +27,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/ApplicationForPaceLayer",
+=======
+<<<<<<< HEAD
+            "outputPath": "dist/PaceLayerApplication",
+=======
+            "outputPath": "dist/PaceLayerUI",
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
+>>>>>>> 74511f29ab5a63d609316348f7846a238303ab0d
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,9 +46,25 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "src/styles.css"
             ],
             "scripts": []
+=======
+<<<<<<< HEAD
+              "src/styles.css"
+            ],
+            "scripts": []
+=======
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
+>>>>>>> 74511f29ab5a63d609316348f7846a238303ab0d
           },
           "configurations": {
             "production": {
@@ -62,18 +100,42 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "ApplicationForPaceLayer:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "ApplicationForPaceLayer:build:production"
+=======
+<<<<<<< HEAD
+            "browserTarget": "PaceLayerApplication:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "PaceLayerApplication:build:production"
+=======
+            "browserTarget": "PaceLayerUI:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "PaceLayerUI:build:production"
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
+>>>>>>> 74511f29ab5a63d609316348f7846a238303ab0d
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "ApplicationForPaceLayer:build"
+=======
+<<<<<<< HEAD
+            "browserTarget": "PaceLayerApplication:build"
+=======
+            "browserTarget": "PaceLayerUI:build"
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
+>>>>>>> 74511f29ab5a63d609316348f7846a238303ab0d
           }
         },
         "test": {
@@ -110,15 +172,47 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
+<<<<<<< HEAD
             "devServerTarget": "ApplicationForPaceLayer:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "ApplicationForPaceLayer:serve:production"
+=======
+<<<<<<< HEAD
+            "devServerTarget": "PaceLayerApplication:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "PaceLayerApplication:serve:production"
+=======
+            "devServerTarget": "PaceLayerUI:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "PaceLayerUI:serve:production"
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
+>>>>>>> 74511f29ab5a63d609316348f7846a238303ab0d
             }
           }
         }
       }
+<<<<<<< HEAD
     }},
   "defaultProject": "ApplicationForPaceLayer"
 }
+=======
+<<<<<<< HEAD
+    }},
+  "defaultProject": "PaceLayerApplication"
+}
+=======
+    }
+  },
+  "defaultProject": "PaceLayerUI",
+  "cli": {
+    "analytics": false
+  }
+}
+>>>>>>> ab07f2bbf30637ae286b3f8d961175724e68a326
+>>>>>>> 74511f29ab5a63d609316348f7846a238303ab0d
